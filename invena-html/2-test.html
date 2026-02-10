@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IFNOSS – Advanced Education ERP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#ffff',
+            primary: '#0f172a',
+            blue: '#2563eb',
+            green: '#22c55e'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-dark text-gray-200 overflow-x-hidden">
+
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+<header class="sticky top-0 z-50 w-full">
+
+  <!-- TOP BAR -->
+  <div class="bg-gradient-to-r from-slate-900 to-slate-800 text-gray-200 text-sm">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+      <p class="hidden md:block">
+        Are you ready to grow your career?
+        <a href="#" class="text-green-400 hover:underline ml-1">
+          Contact Us <i class="fa-solid fa-arrow-right ml-1"></i>
+        </a>
+      </p>
+
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2">
+          <i class="fa-regular fa-clock"></i>
+          <span>10:00 AM – 6:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER -->
+  <div class="bg-white/95 backdrop-blur border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+      <!-- LOGO -->
+      <a href="#">
+        <img src="assets/testing/ifnoss-logo (1).png" class="h-14" alt="IFNOSS">
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden lg:flex items-center gap-8 font-medium text-gray-800">
+
+        <a class="hover:text-blue-600">Home</a>
+
+        <!-- DESKTOP MEGA MENU -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 hover:text-blue-600">
+            University / College
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </button>
+
+          <div class="absolute left-1/2 top-full mt-6 -translate-x-1/2
+                      w-[1100px] max-w-[95vw]
+                      opacity-0 invisible
+                      group-hover:opacity-100 group-hover:visible
+                      transition-all duration-300">
+
+            <div class="bg-white rounded-2xl shadow-xl border p-8 grid grid-cols-5 gap-6">
+
+              <!-- COLUMN -->
+              <div>
+                <h4 class="font-semibold mb-3 text-blue-600">Core</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>Registry</li>
+                  <li>Fees / Accounts</li>
+                  <li>Student Login</li>
+                  <li>Staff Login</li>
+                  <li>HR</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold mb-3 text-blue-600">Premium</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>Library</li>
+                  <li>CRM</li>
+                  <li>Inventory</li>
+                  <li>Document Mgmt</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold mb-3 text-blue-600">Campus</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>Hostel</li>
+                  <li>Transport</li>
+                  <li>Visitor Desk</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold mb-3 text-blue-600">Add-ons</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>SMS</li>
+                  <li>Payments</li>
+                  <li>Website</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-semibold mb-3 text-blue-600">More</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>Multi-Lingual</li>
+                  <li>Multi-Campus</li>
+                  <li>Customizable</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <a>Schools / Pre-Schools</a>
+        <a>Institutes</a>
+        <a>About</a>
+        <a class="text-blue-600 font-semibold">Get a Quote</a>
+        <a>Contact</a>
+      </nav>
+
+      <!-- MOBILE BUTTON -->
+      <button id="menuBtn" class="lg:hidden text-2xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ================= MOBILE MENU ================= -->
+  <div id="mobileMenu" class="lg:hidden hidden bg-white border-t">
+
+    <div class="px-6 py-4 space-y-4 font-medium text-gray-800">
+
+      <a class="block">Home</a>
+
+      <!-- MOBILE ACCORDION -->
+      <button onclick="toggleSubMenu()" class="flex justify-between w-full">
+        University / College
+        <i class="fa-solid fa-chevron-down"></i>
+      </button>
+
+      <div id="subMenu" class="hidden pl-4 text-sm space-y-2">
+        <p class="font-semibold text-blue-600">Core</p>
+        <p>Registry</p>
+        <p>Fees</p>
+        <p>Student Login</p>
+
+        <p class="font-semibold text-blue-600 pt-2">Campus</p>
+        <p>Hostel</p>
+        <p>Transport</p>
+      </div>
+
+      <a class="block">Schools / Pre-Schools</a>
+      <a class="block">Institutes</a>
+      <a class="block">About</a>
+      <a class="block text-blue-600">Get a Quote</a>
+      <a class="block">Contact</a>
+
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  function toggleSubMenu() {
+    document.getElementById('subMenu').classList.toggle('hidden');
+  }
+</script>
+
+
+<!-- ================================================= -->
+<!-- HERO SECTION -->
+<!-- ================================================= -->
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+
+
+  <!-- ===== Banner Swiper ===== -->
+  <div class="relative">
+    <div class="swiper mySwiper-banner-two">
+
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div
+            class="relative min-h-[90vh] flex items-center bg-cover bg-center"
+            style="background-image:url('assets/testing/university-entrance.png');"
+          >
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+
+            <!-- Content -->
+            <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+              <p class="text-lg mb-4">
+                <span class="text-yellow-400 font-semibold">Welcome!</span>
+                Start Growing Your Career Today
+              </p>
+
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5">
+                Leading Education Administration Software
+              </h1>
+
+              <p class="text-gray-200 text-base md:text-lg mb-8">
+                The Technology that will Adapt To Your Climate and Speak Your Language
+              </p>
+
+              <a
+                href="#"
+                class="inline-block bg-white text-gray-900 px-9 py-4 rounded-md font-semibold hover:bg-yellow-400 transition duration-300"
+              >
+                Get an Enquiry
+              </a>
+            </div>
+
+            <!-- Decorative Shapes -->
+            <div class="absolute inset-0 z-10 pointer-events-none">
+              <img src="assets/testing/university-courtyard.png" class="absolute top-12 left-10 w-16 opacity-60" />
+              <img src="assets/testing/university-entrance.png" class="absolute bottom-16 left-16 w-16 opacity-60" />
+              <img src="assets/testing/university-hero.png" class="absolute top-20 right-12 w-16 opacity-60" />
+              <img src="assets/testing/university-library.png" class="absolute bottom-12 right-16 w-16 opacity-60" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div
+            class="relative min-h-[90vh] flex items-center bg-cover bg-center"
+            style="background-image:url('assets/testing/university-courtyard.png');"
+          >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+              <p class="text-lg mb-4">
+                <span class="text-yellow-400 font-semibold">Welcome!</span>
+                Empower Your Institution
+              </p>
+
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-5">
+                Smart Digital Education Solutions
+              </h1>
+
+              <p class="text-gray-200 text-base md:text-lg mb-8">
+                Simplifying administration with modern scalable systems
+              </p>
+
+              <a
+                href="#"
+                class="inline-block bg-white text-gray-900 px-9 py-4 rounded-md font-semibold hover:bg-yellow-400 transition"
+              >
+                Get an Enquiry
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <div
+            class="relative min-h-[90vh] flex items-center bg-cover bg-center"
+            style="background-image:url('assets/testing/university-entrance.png');"
+          >
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 to-black/40"></div>
+
+            <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+              <p class="text-lg mb-4">
+                <span class="text-yellow-400 font-semibold">Welcome!</span>
+                Learn. Manage. Grow.
+              </p>
+
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-5">
+                One Platform for Complete Education Control
+              </h1>
+
+              <p class="text-gray-200 text-base md:text-lg mb-8">
+                Trusted by institutions for performance and reliability
+              </p>
+
+              <a
+                href="#"
+                class="inline-block bg-white text-gray-900 px-9 py-4 rounded-md font-semibold hover:bg-yellow-400 transition"
+              >
+                Get an Enquiry
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation -->
+      <div class="swiper-button-next text-white bg-white p-2 rounded-full"></div>
+      <div class="swiper-button-prev text-white bg-white p-2 rounded-full"></div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Init -->
+  <script>
+    new Swiper(".mySwiper-banner-two", {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+
+
+
+<!-- ================================================= -->
+<!-- SOLUTIONS -->
+<!-- ================================================= -->
+<section class="py-28 bg-gradient-to-b from-dark to-primary">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-center mb-16">
+      One Platform. <span class="text-blue">Every Operation.</span>
+    </h3>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+        <h4 class="text-xl font-semibold mb-3">Student Lifecycle</h4>
+        <p class="text-gray-400">Admissions, attendance, exams, certificates — unified.</p>
+      </div>
+      <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+        <h4 class="text-xl font-semibold mb-3">Finance & Fees</h4>
+        <p class="text-gray-400">Automated billing, reports, compliance, transparency.</p>
+      </div>
+      <div class="bg-white/5 p-8 rounded-2xl border border-white/10">
+        <h4 class="text-xl font-semibold mb-3">Multi-Campus Control</h4>
+        <p class="text-gray-400">Real-time sync across locations & time zones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= -->
+<!-- MODULE GRID -->
+<!-- ================================================= -->
+<section class="py-28 bg-dark">
+  <div class="max-w-7xl mx-auto px-6">
+    <h3 class="text-4xl font-bold text-center mb-16">Powerful Modules</h3>
+
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="p-6 border border-white/10 rounded-xl">Student Management</div>
+      <div class="p-6 border border-white/10 rounded-xl">Attendance</div>
+      <div class="p-6 border border-white/10 rounded-xl">Timetable</div>
+      <div class="p-6 border border-white/10 rounded-xl">Examination</div>
+      <div class="p-6 border border-white/10 rounded-xl">Hostel</div>
+      <div class="p-6 border border-white/10 rounded-xl">Library</div>
+      <div class="p-6 border border-white/10 rounded-xl">Inventory</div>
+      <div class="p-6 border border-white/10 rounded-xl">HR & Payroll</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================= -->
+<!-- DEPLOYMENT -->
+<!-- ================================================= -->
+<section class="py-28 bg-gradient-to-r from-blue to-green text-black">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h3 class="text-4xl font-bold mb-6">Flexible Deployment</h3>
+    <p class="max-w-3xl mx-auto mb-10">
+      On-premise licensing or secure cloud-based SAAS / PAAS deployment.
+    </p>
+    <button class="bg-black text-white px-10 py-4 rounded-xl font-semibold">
+      View Deployment Models
+    </button>
+  </div>
+</section>
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+<footer class="bg-black py-10 text-center text-gray-500 text-sm">
+  © 2026 IFNOSS Education Software. All Rights Reserved.
+</footer>
+
+</body>
+</html>
